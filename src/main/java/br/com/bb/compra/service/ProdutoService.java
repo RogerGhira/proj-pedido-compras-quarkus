@@ -15,4 +15,8 @@ public interface ProdutoService {
     boolean isEmpty();
 
     ProdutoListDto listar(String filtro, Integer page, Integer size);
+
+    Produto deletarPorId(Long id);
+
+    List<Produto> buscarTodosProdutos();
 }

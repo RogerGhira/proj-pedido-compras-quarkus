@@ -69,5 +69,18 @@ public class ProdutoServiceImpl implements ProdutoService {
                 .build();
     }
 
+    @Override
+    @Transactional
+    public Produto deletarPorId(Long id) {
+        Produto produtoDeletado = buscaPorId(id);
+        repository.deleteById(id);
+        return produtoDeletado;
+    }
+
+    @Override
+    public List<Produto> buscarTodosProdutos() {
+        return convertEntityTo(repository.findAll().list());
+    }
+
 
 }
